@@ -1,51 +1,37 @@
-// Burger menus
 document.addEventListener('DOMContentLoaded', function() {
-  // open
-  const burger = document.querySelectorAll(".navbar-burger");
-  const menu = document.querySelectorAll(".navbar-menu");
+  const burgerButtons = document.querySelectorAll(".navbar-burger");
+  const menuElements = document.querySelectorAll(".navbar-menu");
+  const closeButtons = document.querySelectorAll(".navbar-close");
+  const backdrops = document.querySelectorAll(".navbar-backdrop");
+  const navLinks = document.querySelectorAll(".nav-link");
 
-  if (burger.length && menu.length) {
-    for (var i = 0; i < burger.length; i++) {
-      burger[i].addEventListener("click", function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle("hidden");
-        }
-      });
+  function toggleMenu() {
+    for (var i = 0; i < menuElements.length; i++) {
+      menuElements[i].classList.toggle("hidden");
     }
   }
 
-  // close
-  const close = document.querySelectorAll(".navbar-close");
-  const backdrop = document.querySelectorAll(".navbar-backdrop");
-  const navLink = document.querySelectorAll(".nav-link");
-
-  if (close.length) {
-    for (var i = 0; i < close.length; i++) {
-      close[i].addEventListener("click", function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle("hidden");
-        }
-      });
+  if (burgerButtons.length) {
+    for (var i = 0; i < burgerButtons.length; i++) {
+      burgerButtons[i].addEventListener("click", toggleMenu);
     }
   }
 
-  if (backdrop.length) {
-    for (var i = 0; i < backdrop.length; i++) {
-      backdrop[i].addEventListener("click", function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle("hidden");
-        }
-      });
+  if (closeButtons.length) {
+    for (var i = 0; i < closeButtons.length; i++) {
+      closeButtons[i].addEventListener("click", toggleMenu);
     }
   }
 
-  if (navLink.length) {
-    for (var i = 0; i < navLink.length; i++) {
-      navLink[i].addEventListener("click", function () {
-        for (var j = 0; j < menu.length; j++) {
-          menu[j].classList.toggle("hidden");
-        }
-      });
+  if (backdrops.length) {
+    for (var i = 0; i < backdrops.length; i++) {
+      backdrops[i].addEventListener("click", toggleMenu);
+    }
+  }
+
+  if (navLinks.length) {
+    for (var i = 0; i < navLinks.length; i++) {
+      navLinks[i].addEventListener("click", toggleMenu);
     }
   }
 });
